@@ -1,11 +1,12 @@
 .main-btn{
-    padding: 1rem 3rem;
+    padding: 1.5rem 3.5rem;
     border-radius: 5rem;
     border: none;
     text-transform: capitalize;
     color: white;
     background: linear-gradient(to left, rgba(71, 187, 168,1), rgba(71, 240, 115,1));
-    font-size: 1.5rem;
+    font-size: 1.4rem;
+    cursor: pointer;
     &:focus{
         outline: none;
         border: 0.1rem solid rgb(55, 6, 83);

@@ -6,22 +6,60 @@
     width: 100vw;
     padding: 1rem 10rem;
 
-    &__left{
+    @include media("<=tablet"){
+      padding: 1rem 5rem;
+    }
+    @include media("<=phone"){
+      padding: 1rem 2rem;
+    }
 
+    &__left{
+      z-index: 100;
+      img{
+        height: 100%;
+        width: auto;
+      }
     }
     &__center{
       display: flex;
+      @include media("<=tablet"){
+        position: absolute;
+        top: -50%; // 35%
+        left: 50%;
+        transform: translate(-50%,-50%);
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        height: 50vh;
+        width: 95vw;
+        background-color: white;
+        justify-content: space-around;
+        transition: all 0.5s ease-in-out;
+        z-index: 1;
+        border-radius: 2rem;
+      }
+    
       li{
           list-style: none;
+        
+          @include media("<=tablet"){
+            display: flex;
+          }
           &:not(:last-child){
-              margin-right: 2rem;
+              margin-right: 2vw;
+              @include media("<=tablet"){
+                margin-right: 0;
+              }
           }
           &:hover a{
               background-size: 100% 0.4rem;
+              @include media("<=tablet"){
+                background-size: 0 0;
+              }
           }
           
           a{
-              padding: 1.9rem 0;
+              padding: 2.6rem 0;
               font-size: 1.4rem;
               text-decoration: none;
               color: $nav-main-font;
@@ -31,6 +69,9 @@
               background-size: 0% 0.4rem;
               background-repeat: no-repeat;
               transition: all 0.2s linear;
+              @include media("<=tablet"){
+                padding: 0.5rem;
+              }
           }
       }
     }
@@ -38,8 +79,18 @@
         display: flex;
         align-items: center;
         cursor: pointer;
+        z-index: 100;
+        button{
+          @include media("<=tablet"){
+            display: none;
+            
+          }
+        }
         &-menu{
             display: none;
+            @include media("<=tablet"){
+              display: block;
+            }
           span{
               width: 4rem;
               height: 0.3rem;
@@ -48,7 +99,7 @@
               flex-direction: column;
               transition: all 0.3s ease-in-out;
               &:not(:last-child){
-                  margin-bottom: 1rem;
+                  margin-bottom: 0.75rem;
               }
               
           }
@@ -56,18 +107,21 @@
         .active{
           span:nth-child(1){
               transform-origin: center center;
-              transform: rotate(-45deg) translate(-0.9rem, 0.9rem);
+              transform: rotate(-45deg) translate(-0.75rem, 0.75rem);
           }
           span:nth-child(2){
             opacity: 0;
           }
           span:nth-child(3){
             transform-origin: center center;
-            transform: rotate(45deg) translate(-0.9rem,-0.9rem);
+            transform: rotate(45deg) translate(-0.75rem,-0.75rem);
           }
       }
       
       
     }
     
+}
+.menu-toggle{
+  top: 40%;
 }
